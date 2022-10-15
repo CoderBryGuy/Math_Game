@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Math Game</string>
+    <string name="buttonAdd">Addition</string>
+    <string name="AdditionBtn">Addition</string>
+    <string name="SubBtn">Subtraction</string>
+    <string name="MultBtn">Multiplication</string>
+</resources>
