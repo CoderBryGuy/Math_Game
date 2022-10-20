@@ -28,22 +28,22 @@
                   android:textStyle="bold" android:layout_weight="1" android:textColor="@color/white" android:text="@string/time_value_game_act" android:id="@+id/time_value_textView_game_act"/>
 
     </LinearLayout>
-    <TextView android:layout_width="200dp" android:layout_height="100dp" android:layout_gravity="center" android:textColor="@color/white" android:textSize="32sp" android:gravity="center" android:layout_marginTop="20dp" android:hint="@string/math_equation_game_act" android:textColorHint="@color/white"/>
-    <EditText android:layout_width="250dp" android:layout_height="50dp" android:layout_gravity="center" android:textColor="@color/white" android:hint="@string/answer_edittext_game_act" android:layout_marginTop="20dp" android:textColorHint="@color/white"/>
+    <TextView android:layout_width="200dp" android:layout_height="100dp" android:layout_gravity="center" android:textColor="@color/white" android:textSize="32sp" android:gravity="center" android:layout_marginTop="20dp" android:hint="@string/math_equation_game_act" android:textColorHint="@color/white" android:id="@+id/questions_game_act"/>
+    <EditText android:layout_width="250dp" android:layout_height="50dp" android:layout_gravity="center" android:textColor="@color/white" android:hint="@string/answer_edittext_game_act" android:layout_marginTop="20dp" android:textColorHint="@color/white" android:id="@+id/answer_game_act"/>
 
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                   android:orientation="horizontal" android:weightSum="2" android:layout_marginTop="30dp">
 
         <Button
                 android:text="@android:string/ok"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/btn1_game_act" android:layout_weight="1"
+                android:layout_width="150"
+                android:layout_height="wrap_content" android:id="@+id/btn_ok_game_act" android:layout_weight="1"
                 android:layout_marginLeft="10dp" android:layout_marginStart="10dp" android:layout_marginRight="10dp"
                 android:layout_marginEnd="10dp"/>
         <Button
                 android:text="@string/next_question"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/btn2_game_act" android:layout_weight="1"
+                android:layout_height="wrap_content" android:id="@+id/btn_next_game_act" android:layout_weight="1"
                 android:layout_marginLeft="10dp" android:layout_marginStart="10dp" android:layout_marginRight="10dp"
                 android:layout_marginEnd="10dp"/>
     </LinearLayout>
