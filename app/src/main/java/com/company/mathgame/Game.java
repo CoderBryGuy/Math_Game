@@ -33,6 +33,9 @@ public class Game extends AppCompatActivity {
     long time_left_in_millis = START_TIMER_IN_MILLIS;
     Boolean timer_running;
 
+    final static String SCORE_TAG = "score";
+
+
     private static final String TAG = "Game";
 
     @Override
@@ -81,10 +84,20 @@ public class Game extends AppCompatActivity {
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resetTimer();
+                if(timer_running){
+                    pauseTimer();
+                }                resetTimer();
                 mAnswer.setText("");
-                gameContinue();
 
+                if(mUserLife <= 0){
+                    Toast.makeText(Game.this, "Game Over", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(Game.this, Result.class);
+                    intent.putExtra(SCORE_TAG, mUserScore);
+                    startActivity(intent);
+                    finish();
+                }else{
+                    gameContinue();
+                }
             }
         });
     }
@@ -95,28 +108,25 @@ public class Game extends AppCompatActivity {
 
 
         String[] operation = {"+", "-", "/", "*"};
-//        String op1 = operation[mRandom.nextInt(3)];
-        String op1 = "/";
+        String op1 = operation[mRandom.nextInt(4)];
+//        String op1 = "*";
 
 
         switch (op1) {
             case "+":
-                getRandomOperands(false);
+                getRandomOperands(op1);
                 mSolution = mNum1 + mNum2;
                 break;
             case "-":
-                getRandomOperands(false);
+                getRandomOperands(op1);
                 mSolution = mNum1 - mNum2;
                 break;
             case "/":
-
-                getRandomOperands(true);
-
-
+                getRandomOperands(op1);
                 mSolution = mNum1 / mNum2;
                 break;
             case "*":
-                getRandomOperands(false);
+                getRandomOperands(op1);
                 mSolution = mNum1 * mNum2;
                 break;
             default:
@@ -129,20 +139,29 @@ public class Game extends AppCompatActivity {
         startTimer();
     }
 
-    private void getRandomOperands(boolean isDivision) {
-        if (!isDivision) {
-            mNum1 = mRandom.nextInt(100);
-            mNum2 = mRandom.nextInt(100);
-        } else {
-            getRandDivisionOperands();
-            int i = 1;
+    private void getRandomOperands(String operand) {
 
-            while (mNum1 % mNum2 != 0) {
-                Log.d(TAG, String.valueOf(i) + ": gameContinue(): mNum1 = " + mNum1 + " mNum2 = " + mNum2);
-                getRandDivisionOperands();
-                i++;
-            }
-        }
+      switch (operand){
+          case "+": case "-":
+              mNum1 = mRandom.nextInt(100);
+              mNum2 = mRandom.nextInt(100);
+              break;
+          case "/":
+              getRandDivisionOperands();
+              int i = 1;
+
+              while (mNum1 % mNum2 != 0) {
+                  Log.d(TAG, String.valueOf(i) + ": gameContinue(): mNum1 = " + mNum1 + " mNum2 = " + mNum2);
+                  getRandDivisionOperands();
+                  i++;
+              }
+              break;
+          case"*":
+                  mNum1 = mRandom.nextInt(13);
+                  mNum2 = mRandom.nextInt(13);
+              break;
+      }
+
     }
 
     private void getRandDivisionOperands() {
@@ -169,8 +188,9 @@ public class Game extends AppCompatActivity {
                 resetTimer();
                 updateText();
                 mUserLife -= 1;
-                mLife.setText(""+mUserLife);
+                mLife.setText(String.valueOf(mUserLife));
                 mQuestion.setText(R.string.time_up);
+                Toast.makeText(Game.this, "Correct Answer: " + mSolution, Toast.LENGTH_SHORT).show();
             }
         }.start();
 

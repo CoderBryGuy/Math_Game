@@ -17,4 +17,9 @@
     <string name="answer_wrong">You are wrong!!</string>
     <string name="random_operation">Random Operation</string>
     <string name="time_up">Sorry! Time is up!</string>
+    <string name="congratulations">Congratulations</string>
+
+    <string name="play_again">Play Again</string>
+    <string name="exit">Exit</string>
+    <string name="score">Score:</string>
 </resources>
