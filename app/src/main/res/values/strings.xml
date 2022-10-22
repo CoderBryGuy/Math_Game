@@ -13,6 +13,8 @@
     <string name="answer_edittext_game_act">Please Write Your Answer Here</string>
     <string name="math_equation_game_act">Math Equation</string>
     <string name="next_question">Next Question</string>
-    <string name="question_success">Congratulations!! Your answer is true.</string>
-    <string name="answer_wrong">Sorry, your answer is wrong.</string>
+    <string name="question_success">Congratulations!! You are correct</string>
+    <string name="answer_wrong">You are wrong!!</string>
+    <string name="random_operation">Random Operation</string>
+    <string name="time_up">Sorry! Time is up!</string>
 </resources>

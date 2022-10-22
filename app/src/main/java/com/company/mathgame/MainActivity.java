@@ -9,7 +9,7 @@ import android.os.Bundle;
 public class MainActivity extends AppCompatActivity {
 
 
-    Button mAddBtn, mSubBtn, mMultiBtn;
+    Button mAddBtn, mSubBtn, mMultiBtn, mRandGameBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,8 +18,9 @@ public class MainActivity extends AppCompatActivity {
         mAddBtn = findViewById(R.id.buttonAdd);
         mSubBtn = findViewById(R.id.buttonSub);
         mMultiBtn = findViewById(R.id.buttonMult);
+        mRandGameBtn = findViewById(R.id.buttonRandGame);
 
-        mAddBtn.setOnClickListener(new View.OnClickListener() {
+        mRandGameBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Game.class);
